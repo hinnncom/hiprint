@@ -8,6 +8,9 @@ Hiprint works in any where that can work JavaScript  Vue, React or Angular
 <a href="http://www.hinnn.com/demo">
 <img src="http://www.hinnn.com/Content/assets/hinnn1.png" align="center" alt="hinnn hiprint "/>
 </a>
+  <a href="http://www.hinnn.com/demo">
+<img src="http://www.hinnn.com/Content/assets/hinnn2.png" align="center" alt="hinnn hiprint "/>
+</a>
   
 ## License
 
