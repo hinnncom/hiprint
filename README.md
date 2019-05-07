@@ -2,7 +2,9 @@
 **Hiprint** is a JavaScript component  for web print  <br>
   It provides easy web print, html build, easy to pdf  .
 Hiprint works in any where that can work JavaScript  [Vue], [React] or [Angular] 
-
+<a href="http://www.hinnn.com/demo">
+<img src="https://www.hinnn.com/content/assets.png" align="center" alt="Handsontable Screenshot"/>
+</a>
 ## License
 
 Hiprint is dual-licensed. You can either use a free license for all your non-commercial projects or purchase a commercial license. See the table below for a comparison of these two.
