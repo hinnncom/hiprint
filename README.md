@@ -3,7 +3,7 @@
   It provides easy web print, html build, easy to pdf  .
 Hiprint works in any where that can work JavaScript  [Vue], [React] or [Angular] 
 <a href="http://www.hinnn.com/demo">
-<img src="https://www.hinnn.com/Content/assets.png" align="center" alt="hinnn hiprint "/>
+<img src="https://www.hinnn.com/Content/assets/hinnn.png" align="center" alt="hinnn hiprint "/>
 </a>
 ## License
 
