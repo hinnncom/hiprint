@@ -2,7 +2,7 @@
   
 ## Hiprint 
 
-**Hiprint** is a JavaScript component  for web print 
+hiprint is a JavaScript component  for web print 
 It provides easy web print, html build, easy to pdf  .
 Hiprint works in any where that can work JavaScript  Vue, React or Angular
   
