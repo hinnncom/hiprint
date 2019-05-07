@@ -1,4 +1,4 @@
-<div align="center">
+
   
 ## Hiprint 
 
@@ -37,4 +37,3 @@ Hiprint is dual-licensed. You can either use a free license for all your non-com
   </tbody>
 </table>
 
-</div>
