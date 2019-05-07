@@ -23,6 +23,7 @@ Hiprint works in any where that can work JavaScript  Vue, React or Angular
   <a href="http://www.hinnn.com/demo">
 <img src="http://www.hinnn.com/Content/assets/hinnn4.png" align="center" alt="hinnn hiprint "/>
 </a> 
+
 ## License
 
 Hiprint is dual-licensed. You can either use a free license for all your non-commercial projects or purchase a commercial license. See the table below for a comparison of these two.
