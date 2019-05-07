@@ -1,0 +1,141 @@
+.hiprint-printTemplate, .hiprint-printPaper, hiprint-printPanel {
+    box-sizing: border-box;
+    border: 0px;
+}
+
+    .hiprint-printPaper * {
+        box-sizing: content-box;
+    }
+
+.hiprint-printPaper {
+    position: relative;
+    padding: 0 0 0 0;
+    page-break-after: always;
+}
+
+
+
+    .hiprint-printPaper.design {
+        border: 1px dashed rgba(170,170,170,0.7);
+    }
+
+.design .hiprint-printElement-table-content {
+    overflow: hidden;
+}
+
+.design .resize-panel {
+    box-sizing: border-box;
+    border: 1pt dotted;
+}
+
+.hiprint-printElement-text {
+    background-color: transparent;
+    background-repeat: repeat;
+    padding: 0 0 0 0;
+    border-color: rgb(0,0,0);
+    border-style: none;
+    direction: ltr;
+    font-family: '宋体';
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: normal;
+    padding-bottom: 0pt;
+    padding-left: 0pt;
+    padding-right: 0pt;
+    padding-top: 0pt;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: top;
+    line-height: normal;
+    box-sizing: content-box;
+}
+
+.design .hiprint-printElement-text-content {
+    border: 1px dashed rgb(206, 188, 188);
+}
+
+.hiprint-printElement-longText {
+    background-color: transparent;
+    background-repeat: repeat;
+    border-color: rgb(0,0,0);
+    border-style: none;
+    direction: ltr;
+    font-family: '宋体';
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: normal;
+    padding-bottom: 0pt;
+    padding-left: 0pt;
+    padding-right: 0pt;
+    padding-top: 0pt;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: top;
+    line-height: normal;
+    box-sizing: content-box;
+}
+
+.hiprint-printElement-table {
+    background-color: transparent;
+    background-repeat: repeat;
+    color: rgb(0,0,0);
+    border-color: rgb(0,0,0);
+    border-style: none;
+    direction: ltr;
+    font-family: '宋体';
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: normal;
+    padding-bottom: 0pt;
+    padding-left: 0pt;
+    padding-right: 0pt;
+    padding-top: 0pt;
+    text-align: left;
+    text-decoration: none;
+    padding: 0 0 0 0;
+    box-sizing: content-box;
+    line-height: normal;
+}
+
+    .hiprint-printElement-table thead {
+        background: rgb(211,211,211);
+        font-weight: 700;
+    }
+
+.hiprint-printElement-tableTarget, .hiprint-printElement-tableTarget tr, .hiprint-printElement-tableTarget td {
+    border-color: rgb(0,0,0);
+    border-style: none;
+    border-width: 1px;
+    font-weight: normal;
+    direction: ltr;
+    padding-bottom: 0pt;
+    padding-left: 0pt;
+    padding-right: 0pt;
+    padding-top: 0pt;
+    text-decoration: none;
+    vertical-align: middle;
+    box-sizing: content-box;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+    .hiprint-printElement-tableTarget tr, .hiprint-printElement-tableTarget td {
+        height: 18pt;
+    }
+
+.hiprint-paperNumber {
+    font-size: 9pt;
+}
+
+.design .hiprint-printElement-table-handle {
+    position: absolute;
+    height: 21pt;
+    width: 21pt;
+    background: red;
+}
+
+.hiprint-printTemplate .hiprint-paperNumber-disabled {
+    float: right !important;
+    right: 0 !important;
+    color: gainsboro !important;
+}

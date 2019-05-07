@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/hiprint.css" rel="stylesheet" />
+    <link href="css/print-lock.css" rel="stylesheet" />
+</head>
+<body>
+    <textarea class="form-control" rows="10" id="textarea_test1">{"panels":[{"index":0,"height":20,"width":40,"paperHeader":0,"paperFooter":130,"printElements":[{"options":{"left":5,"top":5,"height":23,"width":72,"field":"barcode","testData":"1234556","textType":"barcode"},"printElementType":{"title":"文本","type":"text"}},{"options":{"left":5,"top":40,"height":13,"width":93,"field":"name","hideTitle":"1"},"printElementType":{"title":"文本","type":"text"}}],"paperNumberDisabled":true,"rotate":true}]}</textarea>
+    <button type="button" id="test_button_preview" class="btn btn-primary">快速预览</button>
+    <button type="button" id="test_button_print" class="btn btn-danger">测试打印</button>
+
+
+    <div id="prevViewDiv">
+
+    </div>
+
+    <script src="plugins/jq-3.31.js"></script>
+    <script src="plugins/JsBarcode.all.min.js"></script>
+    <script src="plugins/qrcode.js"></script>
+    <script src="hiprint.bundle.js"></script>
+    <script src="plugins/jquery.jqprint-0.3.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#test_button_preview').click(function () {
+                var testhiprintTemplate = new hiprint.PrintTemplate({ template: JSON.parse($('#textarea_test1').val()) });
+
+                var $html = testhiprintTemplate.getSimpleHtml([{ name: '黄山', barcode: '13234567' }, { name: '黄波', barcode: '1224567' }, { name: '黄磊', barcode: '1234567' }, { name: '黄磊', barcode: '1234567' }, { name: '古丽娜', barcode: '7654321' }])
+                $('#prevViewDiv').html($html)
+              
+            });
+            $('#test_button_print').click(function () {
+                var testhiprintTemplate = new hiprint.PrintTemplate({ template: JSON.parse($('#textarea_test1').val()) });
+
+                var $html = testhiprintTemplate.getSimpleHtml([{ name: '黄山', barcode: '13234567' }, { name: '黄波', barcode: '1224567' }, { name: '黄磊', barcode: '1234567' }, { name: '黄磊', barcode: '1234567' }, { name: '古丽娜', barcode: '7654321' }])
+                $html.jqprint({
+                    debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                    importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                    printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                    operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+                });
+            });
+        });
+    </script>
+</body>
+</html>

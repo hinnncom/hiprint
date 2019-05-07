@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/hiprint.css" rel="stylesheet" />
+    <link href="css/print-lock.css" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid height-100-per print-content">
+        <h5><a href="http://www.hinnn.com">更多实例</a></h5>
+        <div class="hinnn-callout hinnn-callout-danger small-callout">
+            <p><code>自定义</code>用户输入组件对应标题和field(打印对应的值),<code>拖拽结果以json形式存在</code>，点击下方生成json按钮。<code>配置版</code>查看实例2</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-3 col-md-2" style="padding-right:0px;">
+
+                        <div class="rect-printElement-types hiprintEpContainer">
+                            <ul class="hiprint-printElement-type">
+
+                                <li>
+                                    <span class="title"><code>拖拽列表</code></span>
+                                    <ul>
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.text" style="">
+
+                                                <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">文本</span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.image" style="">
+                                                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">图片</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.longText">
+                                                <span class="glyphicon glyphicon-subscript" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">长文</span>
+
+
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.tableCustom" style="">
+                                                <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">表格</span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.html">
+                                                <span class="glyphicon glyphicon-header" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">html</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="title">辅助</span>
+                                    <ul>
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.hline" style="">
+
+                                                <span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">横线</span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.vline" style="">
+                                                <span class="glyphicon glyphicon-resize-vertical" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">竖线</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="ep-draggable-item" tid="testModule.rect">
+                                                <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+                                                <span class="glyphicon-class">矩形</span>
+
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        <div class="hiprint-toolbar" style="margin-top:15px;">
+                            <ul>
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper('A3')">A3</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper('A4')">A4</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper('A5')">A5</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper('B3')">B3</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper('B4')">B4</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper('B5')">B5</a></li>
+
+                                <li><a class="hiprint-toolbar-item"><input type="text" id="customWidth" style="width: 50px;height: 19px;border: 0px;" placeholder="宽/mm" /></a></li>
+                                <li><a class="hiprint-toolbar-item"><input type="text" id="customHeight" style="width: 50px;height: 19px;border: 0px;" placeholder="高/mm" /></a></li>
+
+                                <li><a class="hiprint-toolbar-item" onclick="setPaper($('#customWidth').val(),$('#customHeight').val())">自定义</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="rotatePaper()">旋转</a></li>
+                                <li><a class="hiprint-toolbar-item" onclick="clearTemplate()">清空</a></li>
+                                <li>
+                                    <a class="btn hiprint-toolbar-item " style="color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;" onclick="preview()">快速预览</a>
+                                </li>
+                                <li>
+                                    <a class="btn hiprint-toolbar-item " style="color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;" onclick="directPrint()">打印</a>
+                                </li>
+
+                            </ul>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div id="hiprint-printTemplate" class="hiprint-printTemplate">
+
+                        </div>
+                        <div style="padding-top:15px;">
+                            <button type="button" class="btn btn-primary" onclick="getTemplateCode()">生成json到textarea</button>
+                            <button type="button" class="btn btn-danger" onclick="jsonPreview()">json打印预览</button>
+                        </div>
+                        <div class="hinnn-callout hinnn-callout-danger">
+
+                            <p><code>可视化</code>结果以Json的形式存在，用户可以<code>编辑Json</code>实现特殊化操作，如：数据<code>formatter</code>，<code>文本变色</code>,单元格<code>改变背景</code>等。具体请参考文档。</p>
+                        </div>
+                        <textarea class="form-control" rows="10" id="textarea"></textarea>
+                        <div style="padding:15px 0;">
+                            <button type="button" class="btn btn-danger" onclick="getTemplateHtml()">生成html到textarea</button>
+                        </div>
+
+                        <textarea class="form-control" rows="10" id="textarea_html">
+
+                            </textarea>
+                        <div class="hinnn-callout hinnn-callout-danger small-callout">
+                            <p><code>功能说明</code> 自定义如何引入资源</p>
+                        </div>
+                        <div class="hinnn-callout hinnn-callout-danger small-callout">
+                            <p>
+                                <code>jq(必选)</code>，<code>hiprint.bundle.js(必选)</code>，<code>print-lock.css(必选)</code>，JsBarcode.all.min.js(非必选)-打印条形码需引入，qrcode.js(非必选)-打印二维码需引入
+                                <br />
+
+                            </p>
+                        </div>
+                        <h3>资源引入</h3>
+                        <figure class="highlight">
+                            <pre><code><span class="c">&lt;!-- 最新版本的 HiPrint 核心 CSS 文件 --&gt;</span>
+<span class="nt">&lt;link</span>  <span class="na">src=</span><span class="s">"print-lock.css"</span> <span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- JQ --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"jq"</span> <span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- 最新的 HiPrint 核心 JavaScript 文件 --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"hiprint.bundle.js"</span> <span class="nt">&gt;&lt;/script&gt;</span></code></pre>
+                        </figure>
+                        <h3>初始化程序</h3>
+                        <figure class="highlight">
+                            <pre><code><span class="c">&lt;!-- 初始化打印插件，独立使用无需传参 --&gt;</span>
+<span class="nt"> hiprint.init()</span>
+</code></pre>
+                        </figure>
+                        <h3>开始打印</h3>
+                        <figure class="highlight">
+                            <pre><code><span class="c">&lt;!-- customPrintJson:是textarea中的json,点击上方生成按钮即可生成 --&gt;</span>
+<span class="nt">var printTemplate=new hiprint.PrintTemplate({ template: customPrintJson });</span>
+
+<span class="c">&lt;!-- printData是打印所对应的数据，getSimpleHtml：获取html(已分页),可自行预览,后台转PDF 转图片或打印 --&gt;</span>
+<span class="nt">var $html= hiprintTemplate.getSimpleHtml(printData);</span> 
+
+<span class="c">&lt;!-- 打印：html已获得，打印js 大家可自行选择合适的进行打印，但记得传入print-lock.css --&gt;</span>
+</code></pre>
+                        </figure>
+                        <textarea class="form-control" rows="10" id="textarea_test1">{"panels":[{"index":0,"height":20,"width":40,"paperHeader":0,"paperFooter":130,"printElements":[{"options":{"left":5,"top":5,"height":23,"width":72,"field":"barcode","testData":"1234556","textType":"barcode"},"printElementType":{"title":"文本","type":"text"}},{"options":{"left":5,"top":40,"height":13,"width":93,"field":"name","hideTitle":"1"},"printElementType":{"title":"文本","type":"text"}}],"paperNumberDisabled":true,"rotate":true}]}</textarea>
+                        <div style="padding-top:15px;">
+                            <button type="button" id="test_button_preview" class="btn btn-primary">快速预览</button>
+                            <button type="button" id="test_button_print" class="btn btn-danger">测试打印</button>
+                        </div>
+                        <div class="hinnn-callout hinnn-callout-danger">
+
+                            <p><code>可视化</code>结果以Json的形式存在，用户可以<code>编辑Json</code>实现特殊化操作，如：数据<code>formatter</code>，<code>文本变色</code>,单元格<code>改变背景</code>等。具体请参考文档。</p>
+                        </div>
+
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#test_button_preview').click(function () {
+                                    var testhiprintTemplate = new hiprint.PrintTemplate({ template: JSON.parse($('#textarea_test1').val()) });
+
+                                    var $html = testhiprintTemplate.getSimpleHtml([{ name: '黄山', barcode: '13234567' }, { name: '黄波', barcode: '1224567' }, { name: '黄磊', barcode: '1234567' }, { name: '黄磊', barcode: '1234567' }, { name: '古丽娜', barcode: '7654321' }])
+                                    $('#myModal .modal-body .prevViewDiv').html($html)
+                                    $('#myModal').modal('show')
+                                });
+
+                                $('#test_button_print').click(function () {
+                                    var testhiprintTemplate = new hiprint.PrintTemplate({ template: JSON.parse($('#textarea_test1').val()) });
+
+                                    var $html = testhiprintTemplate.getSimpleHtml([{ name: '黄山', barcode: '13234567' }, { name: '黄波', barcode: '1224567' }, { name: '黄磊', barcode: '1234567' }, { name: '黄磊', barcode: '1234567' }, { name: '古丽娜', barcode: '7654321' }])
+                                    $html.jqprint({
+                                        debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                                        importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                                        printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                                        operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+                                    });
+                                });
+                            })
+                        </script>
+                    </div>
+                    <div class="col-sm-12  col-md-2">
+                        <div id="PrintElementOptionSetting" style="margin-top:10px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <layout class="layout hinnn-layout hinnn-layout-has-sider height-100-per" style="background:#fff;margin-top:50px;">
+        <content class="hinnn-layout-content" style="border-left:1px solid #e8e8e8;">
+
+
+        </content>
+        <sider class="hinnn-layout-sider" style="margin-top:50px;">
+            <div class="container height-100-per" style="width:250px;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+        </sider>
+    </layout>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document" style="width: 825px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">打印预览</h4>
+                </div>
+
+                <div class="modal-body">
+                    <button type="button" class="btn btn-danger" onclick="print()">打印</button>
+                    <div class="prevViewDiv"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--[[ 测试专用  单独使用无需引入  -->
+    <script src="custom_test/custom-etype-provider.js"></script>
+    <script src="custom_test/custom-print-json.js"></script>
+    <script src="custom_test/print-data.js"></script>
+    <!--测试专用  单独使用无需引入 ]]  -->
+    <!--单独使用无需引入  -->
+    <script src="plugins/jquery.minicolors.min.js"></script>
+
+
+
+
+    <script src="plugins/JsBarcode.all.min.js"></script>
+    <script src="plugins/qrcode.js"></script>
+    <script src="hiprint.bundle.js"></script>
+    <script src="plugins/jquery.jqprint-0.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script>
+        var hiprintTemplate;
+        $(document).ready(function () {
+
+            //初始化打印插件
+            hiprint.init({
+                providers: [new customElementTypeProvider()]
+            });
+
+            //hiprint.PrintElementTypeManager.build('.hiprintEpContainer', 'testModule');
+            //设置左侧拖拽事件
+            hiprint.PrintElementTypeManager.buildByHtml($('.ep-draggable-item'));
+
+            hiprintTemplate = new hiprint.PrintTemplate({
+                template: customPrintJson,
+                settingContainer: '#PrintElementOptionSetting',
+                paginationContainer: '.hiprint-printPagination'
+            });
+            //打印设计
+            hiprintTemplate.design('#hiprint-printTemplate');
+        });
+
+        //预览
+        var preview = function () {
+            $('#myModal .modal-body .prevViewDiv').html(hiprintTemplate.getSimpleHtml(printData))
+            $('#myModal').modal('show')
+        }
+
+        //预览
+        var setPaper = function (paperTypeOrWidth, height) {
+            hiprintTemplate.setPaper(paperTypeOrWidth, height);
+        }
+        //旋转
+        var rotatePaper = function () {
+            hiprintTemplate.rotatePaper();
+        }
+        var clearTemplate = function () {
+
+            hiprintTemplate.clear();
+        }
+
+        var getTemplateCode = function () {
+            $('#textarea').html(JSON.stringify(hiprintTemplate.getSimpleTemplateEntity()))
+        }
+        var getTemplateHtml = function () {
+            $('#textarea_html').val(hiprintTemplate.getSimpleHtml(printData)[0].outerHTML)
+        }
+
+        //预览
+        var jsonPreview = function () {
+            var testTemplate = new hiprint.PrintTemplate({ template: JSON.parse($('#textarea').val()) });
+
+            $('#myModal .modal-body .prevViewDiv').html(testTemplate.getSimpleHtml(printData))
+            $('#myModal').modal('show')
+
+        }
+        //直接调用浏览器的打印
+        directPrint = function (printDom) {
+            print(hiprintTemplate.getSimpleHtml(printData));
+        }
+
+        var print = function (printDom) {
+            //直接调用浏览器的打印
+            if (printDom) {
+                printDom.jqprint({
+                    debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                    importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                    printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                    operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+                });
+
+
+            } else {
+                //直接调用浏览器的打印
+                $('#myModal .modal-body .prevViewDiv').jqprint({
+                    debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                    importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                    printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                    operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+                });
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
