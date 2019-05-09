@@ -1,3 +1,14 @@
+/**
+ * jQuery Hiprint 2.0.1
+ * 
+ * Copyright (c) 2016-2019 www.hinnn.com. All rights reserved.
+ *
+ * Licensed under the GPL or commercial licenses
+ * To use it on other terms please contact us: hinnn.com@gmail.com
+ *
+ */
+
+
 "use strict";
 
 function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return right[Symbol.hasInstance](left); } else { return left instanceof right; } }
